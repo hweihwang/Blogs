@@ -7,7 +7,7 @@ import (
 
 func (s *sqlStore) GetById(
 	ctx context.Context,
-	id int64,
+	id uint,
 ) (*blogmodel.Blog, error) {
 	var b blogmodel.Blog
 

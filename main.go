@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/hweihwang/go-blogs/component"
 	"github.com/hweihwang/go-blogs/modules/blog/blogtransport/fiberblog"
 	"github.com/joho/godotenv"
@@ -13,6 +14,8 @@ import (
 
 func main() {
 	app := fiber.New()
+	
+	app.Use(cors.New())
 
 	err := godotenv.Load()
 
@@ -36,6 +39,7 @@ func main() {
 	{
 		blogs.Post("/", fiberblog.CreateBLog(appCtx))
 		blogs.Get("/:id", fiberblog.GetBlog(appCtx))
+		blogs.Patch("/:id", fiberblog.UpdateBlog(appCtx))
 		blogs.Post("/list", fiberblog.ListBlog(appCtx))
 	}
 

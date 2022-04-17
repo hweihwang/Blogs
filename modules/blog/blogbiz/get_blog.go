@@ -6,7 +6,7 @@ import (
 )
 
 type GetBlogStore interface {
-	GetById(ctx context.Context, id int64) (*blogmodel.Blog, error)
+	GetById(ctx context.Context, id uint) (*blogmodel.Blog, error)
 }
 
 type getBlogBiz struct {
@@ -19,6 +19,6 @@ func NewGetBlogBiz(store GetBlogStore) *getBlogBiz {
 	}
 }
 
-func (b *getBlogBiz) GetBlog(ctx context.Context, id int64) (*blogmodel.Blog, error) {
+func (b *getBlogBiz) GetBlog(ctx context.Context, id uint) (*blogmodel.Blog, error) {
 	return b.store.GetById(ctx, id)
 }
