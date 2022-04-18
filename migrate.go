@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-func main() {
+func migrate() {
 	err := godotenv.Load()
 
 	if err != nil {

@@ -11,7 +11,7 @@ type Blog struct {
 	Title           string  `json:"title" gorm:"column:title;index:idx_title;not null"`
 	Description     *string `json:"description" gorm:"column:description;index:idx_description"`
 	Content         *string `json:"content" gorm:"column:content;index:idx_content"`
-	CreatedById     uint   `json:"created_by_id" gorm:"column:created_by_id;index:idx_create_by_id"`
+	CreatedById     *uint   `json:"created_by_id" gorm:"column:created_by_id;index:idx_create_by_id"`
 }
 
 func (*Blog) TableName() string {
